@@ -4,46 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Help Life</title>
-    <link rel="stylesheet" href="styles/header.css"> <!-- Referência ao arquivo CSS para o cabeçalho -->
-    <style>
-        /* Aqui você pode colocar outros estilos gerais que não pertencem ao cabeçalho */
-    </style>
+    <link rel="stylesheet" href="styles/header.css">
 </head>
 <body>
 
     <!-- Cabeçalho -->
     <div class="header">
-        <!-- Logo -->
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <img src="C:\Users\IsaquePereiraAlcanta\Desktop\tcc\WhatsApp Image 2025-02-13 at 11.18.31.jpeg" alt="Logo" class="logo">
-
-        <!-- Menu e Botões -->
-        <div class="menu-container">
-            <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
-            <a href="adesao-planos.html">Adesão a Planos</a>
-            <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
-            <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
-            <a href="painel-administrativo.html">Painel Administrativo</a>
-            <a href="consulta-beneficios.html">Consulta de Benefícios</a>
-            <a href="login-beneficiario.html">Login de Beneficiário</a>
-            <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
-        </div>
-
-        <!-- Botões Login e Cadastro -->
+        <button class="help-btn" onclick="helpLife()">Help</button>
         <div class="button-container">
             <a href="login.html" class="btn">Login</a>
             <a href="cadastro.html" class="btn">Cadastro</a>
         </div>
-
-        <!-- Campo de Pesquisa -->
         <div class="search-container">
             <button class="search-button">🔍</button>
             <input type="text" class="search-input" placeholder="Pesquisar...">
         </div>
     </div>
 
-    <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
+        <h2>Menu</h2>
         <div class="menu">
             <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
             <a href="adesao-planos.html">Adesão a Planos</a>
@@ -57,9 +39,11 @@
     </div>
 
     <script>
-        // Função para alternar a visibilidade da sidebar
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
+        }
+        function helpLife() {
+            alert("Você voltou para a tela inicial!")
         }
     </script>
 </body>
