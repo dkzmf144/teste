@@ -3,48 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Life</title>
-    <link rel="stylesheet" href="styles/header.css">
+    <title>Menu Hamburguer</title>
+    <style>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Cabeçalho com o botão hamburger e o nome Life alinhados à esquerda */
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            width: 100%;
+        }
+
+        /* Estilo do botão hamburger */
+        .menu-btn {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 25px; /* Diminui a largura das barras */
+            height: 25px; /* Diminui a altura do botão */
+            cursor: pointer;
+        }
+
+        .menu-btn div {
+            width: 25px; /* Diminui a largura das barras */
+            height: 4px; /* Diminui a altura das barras */
+            background-color: #333;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo do nome "Life" */
+        .logo {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none; /* Remove o sublinhado */
+            font-weight: bold;
+            margin-left: 15px; /* Espaço entre o botão hamburguer e o nome Life */
+        }
+
+        /* Menu suspenso */
+        .menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px; /* Ajuste a largura do menu */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding-top: 60px;
+            z-index: 100;
+        }
+
+        .menu a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu a:hover {
+            background-color: #444;
+        }
+
+        /* Quando o menu estiver visível */
+        .menu.show {
+            display: block;
+        }
+
+        /* Responsividade: botão hamburger no topo */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: flex;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Cabeçalho -->
+    <!-- Cabeçalho com o botão Hamburger à esquerda e o nome "Life" à direita -->
     <div class="header">
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <img src="C:\Users\IsaquePereiraAlcanta\Desktop\tcc\WhatsApp Image 2025-02-13 at 11.18.31.jpeg" alt="Logo" class="logo">
-        <button class="help-btn" onclick="helpLife()">Help</button>
-        <div class="button-container">
-            <a href="login.html" class="btn">Login</a>
-            <a href="cadastro.html" class="btn">Cadastro</a>
+        <div class="menu-btn" id="menu-btn">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
-        <div class="search-container">
-            <button class="search-button">🔍</button>
-            <input type="text" class="search-input" placeholder="Pesquisar...">
-        </div>
+        <a href="index.html" class="logo">Life</a> <!-- Link para a página inicial -->
     </div>
 
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <h2>Menu</h2>
-        <div class="menu">
-            <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
-            <a href="adesao-planos.html">Adesão a Planos</a>
-            <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
-            <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
-            <a href="painel-administrativo.html">Painel Administrativo</a>
-            <a href="consulta-beneficios.html">Consulta de Benefícios</a>
-            <a href="login-beneficiario.html">Login de Beneficiário</a>
-            <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
-        </div>
+    <!-- Menu -->
+    <div class="menu" id="menu">
+        <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
+        <a href="adesao-planos.html">Adesão a Planos</a>
+        <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
+        <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
+        <a href="painel-administrativo.html">Painel Administrativo</a>
+        <a href="consulta-beneficios.html">Consulta de Benefícios</a>
+        <a href="login-beneficiario.html">Login de Beneficiário</a>
+        <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
     </div>
 
     <script>
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("open");
-        }
-        function helpLife() {
-            alert("Você voltou para a tela inicial!")
-        }
+        // Obter os elementos do menu e botão
+        const menuBtn = document.getElementById('menu-btn');
+        const menu = document.getElementById('menu');
+
+        // Ao clicar no botão, alterna a visibilidade do menu
+        menuBtn.addEventListener('click', (event) => {
+            event.stopPropagation();  // Evita que o clique no menu se propague para o document
+            menu.classList.toggle('show'); // Alterna a classe 'show' no menu
+        });
+
+        // Ao clicar fora do menu, esconde o menu
+        document.addEventListener('click', (event) => {
+            if (!menu.contains(event.target) && event.target !== menuBtn) {
+                menu.classList.remove('show');
+            }
+        });
+
+        // Impede que o clique no menu feche ele imediatamente
+        menu.addEventListener('click', (event) => {
+            event.stopPropagation();
+        });
     </script>
+
 </body>
 </html>
