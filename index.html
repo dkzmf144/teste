@@ -10,73 +10,45 @@
             font-family: Arial, sans-serif;
         }
 
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background: #05696b;
-            color: #05696b;
-            transition: left 0.5s ease-in-out;
-            padding-top: 60px;
-        }
-
-        .sidebar.open {
-            left: 0;
-        }
-
-        /* Contêiner de logo e menu */
-        .header-container {
-            position: fixed;
-            top: 10px;
-            left: 10px;
+        /* Cabeçalho */
+        .header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
+            background-color: #05696b;
+            color: white;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
             z-index: 2;
         }
 
-        /* Logo */
         .logo {
             width: 60px; /* Ajuste o tamanho da logo conforme necessário */
             height: auto;
-            margin-left: 30px; /* Distância entre o logo e o menu */
         }
 
-        /* Botão de Toggle Sidebar */
-        .toggle-btn {
-            background: #05696b;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background: #05696b;
-        }
-
-        /* Fechar o botão da sidebar */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #05696b;
-            color: #05696b;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        /* Pesquisa */
-        .search-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
+        /* Menu */
+        .menu-container {
             display: flex;
             align-items: center;
+            gap: 20px;
+        }
+
+        .menu-container a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu-container a:hover {
+            text-decoration: underline;
+        }
+
+        /* Campo de pesquisa */
+        .search-container {
+            position: relative;
         }
 
         .search-button {
@@ -85,8 +57,7 @@
             background: #05696b;
             border-radius: 50%;
             border: none;
-            list-style: none;
-            color: #05696b;
+            color: white;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -110,37 +81,15 @@
             padding: 5px;
         }
 
-        /* Remover borda e contorno ao clicar na barra de pesquisa */
         .search-input:focus {
             border: none;
             outline: none;
         }
 
-        /* Botão Help Life */
-        .help-btn {
-            position: fixed;
-            left: 10px;
-            top: 60px;
-            background: #05696b;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .help-btn:hover {
-            background: #05696b;
-        }
-
-        /* Botões Login e Cadastro no canto superior direito */
+        /* Botões Login e Cadastro */
         .button-container {
-            position: fixed;
-            top: 10px;
-            right: 220px; /* Distância para ficar ao lado da lupa */
             display: flex;
             gap: 10px;
-            z-index: 2;
         }
 
         .btn {
@@ -157,64 +106,102 @@
             background-color: #05696b;
         }
 
-        /* Estilos gerais para a página */
-        h2 {
-            text-align: center;
-            color: #05696b;
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: -250px;
+            top: 0;
+            width: 250px;
+            height: 100%;
+            background: #05696b;
+            color: white;
+            transition: left 0.5s ease-in-out;
+            padding-top: 60px;
         }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #05696b;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .menu {
+            padding: 20px;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 8px 0;
+        }
+
+        .menu a:hover {
+            background: #333;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Contêiner para o menu e logo -->
-    <div class="header-container">
-        <!-- Botão de Toggle Sidebar -->
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <!-- Cabeçalho -->
+    <div class="header">
         <!-- Logo -->
         <img src="C:\Users\IsaquePereiraAlcanta\Desktop\tcc\WhatsApp Image 2025-02-13 at 11.18.31.jpeg" alt="Logo" class="logo">
-    </div>
 
-    <!-- Botão Help Life -->
-    <button class="help-btn" onclick="helpLife()">Help</button>
+        <!-- Menu e Botões -->
+        <div class="menu-container">
+            <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
+            <a href="adesao-planos.html">Adesão a Planos</a>
+            <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
+            <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
+            <a href="painel-administrativo.html">Painel Administrativo</a>
+            <a href="consulta-beneficios.html">Consulta de Benefícios</a>
+            <a href="login-beneficiario.html">Login de Beneficiário</a>
+            <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
+        </div>
 
-    <!-- Botões de Login e Cadastro no canto superior direito -->
-    <div class="button-container">
-        <a href="login.html" class="btn">Login</a>
-        <a href="cadastro.html" class="btn">Cadastro</a>
+        <!-- Botões Login e Cadastro -->
+        <div class="button-container">
+            <a href="login.html" class="btn">Login</a>
+            <a href="cadastro.html" class="btn">Cadastro</a>
+        </div>
+
+        <!-- Campo de Pesquisa -->
+        <div class="search-container">
+            <button class="search-button">🔍</button>
+            <input type="text" class="search-input" placeholder="Pesquisar...">
+        </div>
     </div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <h2>Menu</h2>
-    <div class="menu" id="menu">
-        <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
-        <a href="adesao-planos.html">Adesão a Planos</a>
-        <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
-        <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
-        <a href="painel-administrativo.html">Painel Administrativo</a>
-        <a href="consulta-beneficios.html">Consulta de Benefícios</a>
-        <a href="login-beneficiario.html">Login de Beneficiário</a>
-        <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
-    </div>
-
-    </div>
-
-    <!-- Campo de Pesquisa -->
-    <div class="search-container">
-        <button class="search-button">🔍</button>
-        <input type="text" class="search-input" placeholder="Pesquisar...">
+        <div class="menu">
+            <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
+            <a href="adesao-planos.html">Adesão a Planos</a>
+            <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
+            <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
+            <a href="painel-administrativo.html">Painel Administrativo</a>
+            <a href="consulta-beneficios.html">Consulta de Benefícios</a>
+            <a href="login-beneficiario.html">Login de Beneficiário</a>
+            <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
+        </div>
     </div>
 
     <script>
         // Função para alternar a visibilidade da sidebar
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
-        }
-
-        // Função para exibir mensagem ao clicar no Help Life
-        function helpLife() {
-            alert("Você voltou para a tela inicial!")
         }
     </script>
 </body>
