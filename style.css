@@ -10,10 +10,11 @@ body {
     top: 0;
     width: 250px;
     height: 100%;
-    background: rgb(60, 60, 60);
-    color: white;
+    background: #05696b;
+    color: #ffffff;
     transition: left 0.5s ease-in-out;
     padding-top: 60px;
+    z-index: 1;
 }
 
 .sidebar.open {
@@ -39,8 +40,8 @@ body {
 
 /* Botão de Toggle Sidebar */
 .toggle-btn {
-    background: hsl(0, 0%, 100%);
-    color: #333;
+    background: #05696b;
+    color: #ffffff;
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -48,7 +49,7 @@ body {
 }
 
 .toggle-btn:hover {
-    background: hsl(0, 1%, 20%);
+    background: #034e4a;
 }
 
 /* Fechar o botão da sidebar */
@@ -56,8 +57,8 @@ body {
     position: absolute;
     top: 10px;
     right: 10px;
-    background: hsl(167, 100%, 50%);
-    color: white;
+    background: #05696b;
+    color: #ffffff;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -75,10 +76,10 @@ body {
 .search-button {
     width: 40px;
     height: 40px;
-    background: hsl(167, 100%, 50%);
+    background: #05696b;
     border-radius: 50%;
     border: none;
-    color: white;
+    color: #ffffff;
     font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -102,12 +103,18 @@ body {
     padding: 5px;
 }
 
+/* Remover borda e contorno ao clicar na barra de pesquisa */
+.search-input:focus {
+    border: none;
+    outline: none;
+}
+
 /* Botão Help Life */
 .help-btn {
     position: fixed;
     left: 10px;
     top: 60px;
-    background: #333;
+    background: #05696b;
     color: white;
     border: none;
     padding: 10px;
@@ -116,14 +123,14 @@ body {
 }
 
 .help-btn:hover {
-    background: #555;
+    background: #034e4a;
 }
 
 /* Botões Login e Cadastro no canto superior direito */
 .button-container {
     position: fixed;
     top: 10px;
-    right: 220px;
+    right: 220px; /* Distância para ficar ao lado da lupa */
     display: flex;
     gap: 10px;
     z-index: 2;
@@ -131,7 +138,7 @@ body {
 
 .btn {
     padding: 10px 20px;
-    background-color: #007BFF;
+    background-color: #05696b;
     color: white;
     font-size: 16px;
     border-radius: 4px;
@@ -140,11 +147,25 @@ body {
 }
 
 .btn:hover {
-    background-color: #0056b3;
+    background-color: #034e4a;
 }
 
-/* Estilos gerais para a página */
-h2 {
-    text-align: center;
-    color: #333;
+/* Menu dentro da sidebar */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background-color: #034e4a;
 }
