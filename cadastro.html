@@ -103,38 +103,6 @@
                 event.preventDefault();
             }
         }
-
-        // Função para processar e salvar os dados no LocalStorage
-        function salvarCadastro(event) {
-            event.preventDefault();  // Impede o envio do formulário
-
-            // Coleta os dados do formulário
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const cpf = document.getElementById('cpf').value;
-            const senha = document.getElementById('senha').value;
-
-            // Cria um objeto com os dados
-            const usuario = {
-                nome: nome,
-                email: email,
-                cpf: cpf,
-                senha: senha
-            };
-
-            // Recupera os usuários do LocalStorage (caso existam) ou cria um novo array
-            let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-            usuarios.push(usuario);
-
-            // Salva o array de usuários no LocalStorage
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-
-            // Exibe uma mensagem de sucesso
-            alert('Cadastro realizado com sucesso!');
-
-            // Limpa o formulário
-            document.getElementById('cadastro-form').reset();
-        }
     </script>
 </head>
 <body>
@@ -142,8 +110,7 @@
     <div class="container">
         <h2>Cadastro - Saúde Convênios</h2>
 
-        <!-- Formulário de Cadastro -->
-        <form id="cadastro-form" onsubmit="salvarCadastro(event); checarCPF(event)">
+        <form action="/cadastro" method="POST" onsubmit="checarCPF(event)">
             <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" name="nome" class="input-field" placeholder="Digite seu nome completo" required>
 
@@ -151,7 +118,7 @@
             <input type="email" id="email" name="email" class="input-field" placeholder="Digite seu e-mail" required>
 
             <label for="cpf">CPF:</label>
-            <input type="text" id="cpf" name="cpf" class="input-field" placeholder="Digite seu CPF (somente números)" maxlength="14" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="CPF no formato XXX.XXX.XXX-XX">
+            <input type="text" id="cpf" name="cpf" class="input-field" placeholder="Digite seu CPF (somente números)" maxlength="14" required pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" title="CPF no formato XXX.XXX.XXX-XX" oninput="mascaraCPF(event)">
 
             <label for="senha">Senha:</label>
             <input type="password" id="senha" name="senha" class="input-field" placeholder="Digite sua senha" required>
@@ -166,6 +133,22 @@
             <p>Já tem uma conta? <a href="#">Faça login</a></p>
         </div>
     </div>
+
+    <script>
+        // Função para aplicar a máscara de CPF
+        function mascaraCPF(event) {
+            const cpf = event.target.value.replace(/\D/g, "");
+            if (cpf.length <= 3) {
+                event.target.value = cpf;
+            } else if (cpf.length <= 6) {
+                event.target.value = cpf.replace(/(\d{3})(\d{1,})/, "$1.$2");
+            } else if (cpf.length <= 9) {
+                event.target.value = cpf.replace(/(\d{3})(\d{3})(\d{1,})/, "$1.$2.$3");
+            } else {
+                event.target.value = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{1,})/, "$1.$2.$3-$4");
+            }
+        }
+    </script>
 
 </body>
 </html>
