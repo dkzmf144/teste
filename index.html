@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpLife</title>
     <style>
-        /* Adicionando o estilo da bolinha do perfil */
+        /* Estilos do cabeçalho e do perfil */
         .profile-btn {
             border-radius: 50%;
             width: 40px;
@@ -27,31 +27,59 @@
             height: 100%;
         }
 
-        .profile-dropdown {
-            display: none;
-            position: absolute;
-            top: 60px;
-            right: 20px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            padding: 10px;
-            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+        .profile-info {
+            text-align: center;
+            margin-top: 5px;
+            display: none; /* Inicialmente oculto */
         }
 
-        .profile-dropdown a {
+        .profile-info span {
             display: block;
-            padding: 5px 0;
-            text-decoration: none;
-            color: #333;
+            font-size: 14px;
         }
 
-        .profile-dropdown a:hover {
-            background-color: #f1f1f1;
+        .login-modal {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: right 0.3s ease;
+            padding: 20px;
         }
-        
-        .logged-in .profile-btn {
-            background-color: transparent;
+
+        .login-modal.open {
+            right: 0;
         }
+
+        .login-modal h2 {
+            margin-top: 0;
+        }
+
+        .login-modal input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .login-modal button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .login-modal button:hover {
+            background-color: #45a049;
+        }
+
     </style>
 </head>
 <body>
@@ -78,16 +106,62 @@
 
     <header>
         <h1>HelpLife</h1> <!-- Título do cabeçalho -->
-        <div class="profile-btn" onclick="toggleProfileDropdown()">
+        <div class="profile-btn" onclick="openLoginModal()">
             <img src="profile-placeholder.jpg" alt="Profile" id="profile-img">
         </div>
-        <div class="profile-dropdown" id="profile-dropdown">
-            <a href="#" onclick="login()">Fazer Login</a>
+        <div class="profile-info" id="profile-info">
+            <img src="profile-placeholder.jpg" alt="Profile" id="profile-img-info" width="40" height="40">
+            <span id="profile-name"></span>
         </div>
     </header>
 
+    <div class="login-modal" id="login-modal">
+        <h2>Login</h2>
+        <input type="text" id="login-username" placeholder="Usuário">
+        <input type="password" id="login-password" placeholder="Senha">
+        <button onclick="login()">Login</button>
+    </div>
+
     <script>
         let isLoggedIn = false; // Controla o estado de login
+        let username = ''; // Nome do usuário
+
+        // Abre o modal de login
+        function openLoginModal() {
+            if (isLoggedIn) {
+                return; // Se já estiver logado, nada acontece
+            }
+            document.getElementById('login-modal').classList.add('open');
+        }
+
+        // Realiza o login e fecha o modal
+        function login() {
+            const usernameInput = document.getElementById('login-username').value;
+            const passwordInput = document.getElementById('login-password').value;
+
+            // Simulando a verificação do login
+            if (usernameInput && passwordInput) {
+                username = usernameInput; // Salva o nome do usuário
+                isLoggedIn = true;
+
+                // Atualiza a bolinha do perfil com a imagem genérica e o nome do usuário
+                document.getElementById("profile-img").src = "user-avatar.jpg"; // Altera para a imagem do usuário após login
+                document.getElementById("profile-name").innerText = username;
+                document.getElementById("profile-info").style.display = 'block'; // Exibe o nome do usuário abaixo da bolinha de perfil
+
+                // Fecha o modal de login
+                document.getElementById('login-modal').classList.remove('open');
+            } else {
+                alert('Por favor, insira usuário e senha válidos.');
+            }
+        }
+
+        // Fechar o modal de login ao clicar fora da área do modal
+        window.addEventListener('click', function (e) {
+            if (e.target === document.getElementById('login-modal')) {
+                document.getElementById('login-modal').classList.remove('open');
+            }
+        });
 
         function toggleSidebar() {
             document.getElementById("sidebar").classList.toggle("open");
@@ -95,33 +169,6 @@
 
         function helpLife() {
             alert("Você clicou no Help Life!");
-        }
-
-        function toggleProfileDropdown() {
-            const dropdown = document.getElementById("profile-dropdown");
-            dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-
-            // Se estiver logado, mostrar o nome do usuário e foto
-            if (isLoggedIn) {
-                dropdown.innerHTML = `<a href="#">Meu Perfil</a><a href="#" onclick="logout()">Sair</a>`;
-            } else {
-                dropdown.innerHTML = `<a href="#" onclick="login()">Fazer Login</a>`;
-            }
-        }
-
-        function login() {
-            // Função simulada para login
-            isLoggedIn = true; // Marca o usuário como logado
-            document.getElementById("profile-img").src = "user-avatar.jpg"; // Altera a imagem do perfil
-            document.getElementById("profile-dropdown").innerHTML = `<a href="#">Meu Perfil</a><a href="#" onclick="logout()">Sair</a>`;
-            toggleProfileDropdown(); // Fecha o menu
-        }
-
-        function logout() {
-            // Função simulada para logout
-            isLoggedIn = false;
-            document.getElementById("profile-img").src = "profile-placeholder.jpg"; // Restaura a imagem do perfil
-            document.getElementById("profile-dropdown").innerHTML = `<a href="#" onclick="login()">Fazer Login</a>`;
         }
     </script>
 
@@ -131,7 +178,7 @@
             <img src="lupa.png" alt="lupa" height="20" width="20"> 
         </a>
     </div>
-    
+
     <iframe
         title="Itajahy"
         width="250"
@@ -140,5 +187,5 @@
         src="https://maps.google.com/maps?q=2880%20Itajahy%20Feitosa,%20Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=embed"
         scrolling="no">
     </iframe>
-</body> 
+</body>
 </html>
