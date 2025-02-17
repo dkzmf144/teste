@@ -6,7 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HelpLife</title>
     <style>
-        
+        /* Estilo para o botão centralizado */
+        .center-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 15px 30px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none; /* Remove o underline do link */
+        }
+
+        .center-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>  
@@ -36,6 +55,9 @@
     <h1>HelpLife</h1> <!-- Título do cabeçalho -->
 </header>
 
+<!-- Botão Compra de Convênios, centralizado na tela -->
+<a href="compra-convenio.html" class="center-btn">Compra de Convênios</a>
+
 <script>
     function toggleSidebar() {
         document.getElementById("sidebar").classList.toggle("open");
@@ -57,10 +79,10 @@
   width="250"
   height="250"
   id="gmap_canvas"
-  src="https://maps.google.com/maps?q=2880%20Itajahy Feitosa,%20Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  src="https://maps.google.com/maps?q=2880%20Itajahy%20Feitosa,%20Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=embed"
   scrolling="no"
 >
 </iframe>
-h
+
 </body> 
-</html> dimas
+</html>
