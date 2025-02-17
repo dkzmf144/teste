@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra de Convênios - Saúde Convênios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .plans {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .plan {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        .plan h3 {
+            color: #007BFF;
+            font-size: 24px;
+        }
+
+        .plan p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .price {
+            font-size: 22px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .btn {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Escolha seu Convênio</h2>
+
+        <div class="plans">
+            <div class="plan">
+                <h3>Convênio Básico</h3>
+                <p>Ideal para quem busca o básico para saúde.</p>
+                <div class="price">R$ 99,99/mês</div>
+                <button class="btn" onclick="comprarPlano('Básico')">Comprar</button>
+            </div>
+
+            <div class="plan">
+                <h3>Convênio Intermediário</h3>
+                <p>Plano completo com mais opções de cobertura.</p>
+                <div class="price">R$ 149,99/mês</div>
+                <button class="btn" onclick="comprarPlano('Intermediário')">Comprar</button>
+            </div>
+
+            <div class="plan">
+                <h3>Convênio Premium</h3>
+                <p>A melhor cobertura com os melhores serviços.</p>
+                <div class="price">R$ 249,99/mês</div>
+                <button class="btn" onclick="comprarPlano('Premium')">Comprar</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Já tem um convênio? <a href="#">Acesse sua conta</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para simular a compra do plano
+        function comprarPlano(plano) {
+            alert('Você escolheu o plano ' + plano + '. O processo de compra será realizado em breve.');
+        }
+    </script>
+
+</body>
+</html>
