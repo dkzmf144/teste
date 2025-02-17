@@ -1,3 +1,4 @@
+/* Corpo */
 body {
     margin: 0;
     height: 100vh;
@@ -9,84 +10,32 @@ body {
 header {
     background-color: #298b8d;
     color: white;
-    padding: 50px 0;
+    padding: 20px 0;
     text-align: center;
     width: 100%;
     z-index: 1;
+    position: relative; /* Garantir que os elementos dentro possam ser posicionados de forma relativa */
 }
 
-.search-box {
+/* Estilo para o botão de perfil dentro do cabeçalho */
+.profile-btn {
     position: absolute;
-    top: 21%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #e0e2e2;
-    height: 21px;
-    padding: 10px;
-    border-radius: 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 10;
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da borda direita */
+    width: 40px; /* Tamanho da bolinha */
+    height: 40px; /* Tamanho da bolinha */
+    border-radius: 50%; /* Forma circular */
+    background-color: #007BFF; /* Cor de fundo da bolinha */
+    color: white; /* Cor do ícone */
+    text-align: center;
+    line-height: 40px; /* Centraliza o ícone dentro da bolinha */
+    font-size: 20px; /* Tamanho do ícone */
+    cursor: pointer; /* Aponta que é clicável */
 }
 
-.search-txt {
-    border: none;
-    background: none;
-    outline: none;
-    padding: 0;
-    color: rgb(0, 0, 0);
-    font-size: 16px;
-    line-height: 40px;
-    width: 0;
-    transition: .70s;
-}
-
-.search-btn {
-    width: 300px;
-    height: 40px;
-    border-radius: 50%;
-    background: #e4e2e2b6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.search-box:hover > .search-txt {
-    width: 240px;
-    padding: 0 6px;
-}
-
-.search-box:hover > .search-btn {
-    background: #e0e2e200;
-}
-
-/* Sidebar */
-.sidebar {
-    position: fixed;
-    left: -250px;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background: rgb(60, 60, 60);
-    color: white;
-    transition: left 0.5s ease-in-out;
-    padding-top: 60px;
-    z-index: 100;
-}
-
-.sidebar.open {
-    left: 0;
-}
-
-/* Esconder elementos quando a sidebar estiver aberta */
-.hidden-when-sidebar-open {
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.sidebar.open ~ .hidden-when-sidebar-open {
-    opacity: 0;
-    visibility: hidden;
+/* Efeito de hover para o botão de perfil */
+.profile-btn:hover {
+    background-color: #0056b3; /* Cor ao passar o mouse */
 }
 
 /* Container dos botões no topo */
@@ -146,11 +95,33 @@ header {
 }
 
 .help-btn:hover {
-    background: #555 
+    background: #555;
 }
 
-/* Estilos gerais */
-h2 {
-    text-align: center;
-    color: #333;
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    left: -250px;
+    top: 0;
+    width: 250px;
+    height: 100%;
+    background: rgb(60, 60, 60);
+    color: white;
+    transition: left 0.5s ease-in-out;
+    padding-top: 60px;
+    z-index: 100;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+/* Esconder elementos quando a sidebar estiver aberta */
+.hidden-when-sidebar-open {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.open ~ .hidden-when-sidebar-open {
+    opacity: 0;
+    visibility: hidden;
 }
