@@ -1,224 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help Life</title>
+    <title>HelpLife</title>
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        /* Sidebar */
-        .sidebar {
-            position: fixed;
-            left: -250px;
-            top: 0;
-            width: 250px;
-            height: 100%;
-            background: #05696b;
-            color: #05696b;
-            transition: left 0.5s ease-in-out;
-            padding-top: 60px;
-        }
-
-        .sidebar.open {
-            left: 0;
-        }
-
-        /* Contêiner de logo e menu */
-        .header-container {
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            display: flex;
-            align-items: center;
-            z-index: 2;
-        }
-
-        /* Logo */
-        .logo {
-            width: 60px; /* Ajuste o tamanho da logo conforme necessário */
-            height: auto;
-            margin-left: 30px; /* Distância entre o logo e o menu */
-        }
-
-        /* Botão de Toggle Sidebar */
-        .toggle-btn {
-            background: #05696b;
-            color: #ffffff;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .toggle-btn:hover {
-            background: #05696b;
-        }
-
-        /* Fechar o botão da sidebar */
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #05696b;
-            color: #05696b;
-            border: none;
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-
-        /* Pesquisa */
-        .search-container {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .search-button {
-            width: 40px;
-            height: 40px;
-            background: #05696b;
-            border-radius: 50%;
-            border: none;
-            list-style: none;
-            color: #05696b;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .search-input {
-            width: 0;
-            opacity: 0;
-            padding: 5px;
-            border: none;
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .search-container:hover .search-input {
-            width: 150px;
-            opacity: 1;
-            padding: 5px;
-        }
-
-        /* Remover borda e contorno ao clicar na barra de pesquisa */
-        .search-input:focus {
-            border: none;
-            outline: none;
-        }
-
-        /* Botão Help Life */
-        .help-btn {
-            position: fixed;
-            left: 10px;
-            top: 60px;
-            background: #05696b;
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .help-btn:hover {
-            background: #05696b;
-        }
-
-        /* Botões Login e Cadastro no canto superior direito */
-        .button-container {
-            position: fixed;
-            top: 10px;
-            right: 220px; /* Distância para ficar ao lado da lupa */
-            display: flex;
-            gap: 10px;
-            z-index: 2;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            background-color: #05696b;
-            color: white;
-            font-size: 16px;
-            border-radius: 4px;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #05696b;
-        }
-
-        /* Estilos gerais para a página */
-        h2 {
-            text-align: center;
-            color: #05696b;
-        }
+        
     </style>
 </head>
 <body>
+    
+<!-- Container para os botões do topo -->
+<div class="top-buttons">
+    <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+    <a href="login.html" class="btn">Login</a>
+    <a href="C:\Users\IsaquePereiraAlcanta\Desktop\tcc\cadastro.html" class="btn">Cadastro</a>
+</div>
 
-    <!-- Contêiner para o menu e logo -->
-    <div class="header-container">
-        <!-- Botão de Toggle Sidebar -->
-        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
-        <!-- Logo -->
-        <img src="C:\Users\IsaquePereiraAlcanta\Desktop\tcc\WhatsApp Image 2025-02-13 at 11.18.31.jpeg" alt="Logo" class="logo">
-    </div>
+<!-- Botão Help Life -->
+<button class="help-btn" onclick="helpLife()">Help Life</button>
 
-    <!-- Botão Help Life -->
-    <button class="help-btn" onclick="helpLife()">Help</button>
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+    <button class="close-btn" onclick="toggleSidebar()">✖</button>
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="#" style="color: white; text-decoration: none;">Item 1</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">Item 2</a></li>
+        <li><a href="#" style="color: white; text-decoration: none;">Item 3</a></li>
+    </ul>
+</div>
 
-    <!-- Botões de Login e Cadastro no canto superior direito -->
-    <div class="button-container">
-        <a href="login.html" class="btn">Login</a>
-        <a href="cadastro.html" class="btn">Cadastro</a>
-    </div>
+<header>
+    <h1>HelpLife</h1> <!-- Título do cabeçalho -->
+</header>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" onclick="toggleSidebar()">✖</button>
-        <h2>Menu</h2>
-    <div class="menu" id="menu">
-        <a href="solicitacao-servicos.html">Solicitação de Serviços</a>
-        <a href="adesao-planos.html">Adesão a Planos</a>
-        <a href="pagamento-mensalidade.html">Pagamento de Mensalidades</a>
-        <a href="relatorios-adesoes.html">Relatórios de Adesões e Utilização</a>
-        <a href="painel-administrativo.html">Painel Administrativo</a>
-        <a href="consulta-beneficios.html">Consulta de Benefícios</a>
-        <a href="login-beneficiario.html">Login de Beneficiário</a>
-        <a href="cadastro-beneficiario.html">Cadastro de Beneficiário</a>
-    </div>
+<script>
+    function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("open");
+    }
 
-    </div>
+    function helpLife() {
+        alert("Você clicou no Help Life!");
+    }
+</script>
 
-    <!-- Campo de Pesquisa -->
-    <div class="search-container">
-        <button class="search-button">🔍</button>
-        <input type="text" class="search-input" placeholder="Pesquisar...">
-    </div>
+<div class="search-box">
+    <input type="text" class="search-txt" placeholder="Pesquisar">
+    <a href="#">
+        <img src="lupa.png" alt="lupa" height="20" width="20"> 
+    </a>
+</div>
+<iframe
+  title="Itajahy"
+  width="250"
+  height="250"
+  id="gmap_canvas"
+  src="https://maps.google.com/maps?q=2880%20Itajahy Feitosa,%20Sao%20Paulo&t=&z=13&ie=UTF8&iwloc=&output=embed"
+  scrolling="no"
+>
+</iframe>
 
-    <script>
-        // Função para alternar a visibilidade da sidebar
-        function toggleSidebar() {
-            document.getElementById("sidebar").classList.toggle("open");
-        }
-
-        // Função para exibir mensagem ao clicar no Help Life
-        function helpLife() {
-            alert("Você voltou para a tela inicial!")
-        }
-    </script>
 </body>
 </html>
-
-
-o bao
