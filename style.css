@@ -1,150 +1,156 @@
-/* Estilo para o botão centralizado */
-.center-btn {
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+}
+
+/* Cabeçalho */
+header {
+    background-color: #298b8d;
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.search-box {
     position: absolute;
-    top: 50%;
+    top: 21%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 15px 30px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none; /* Remove o underline do link */
-}
-
-.center-btn:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo para os botões do topo */
-.top-buttons {
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    gap: 10px;
-}
-
-.top-buttons .btn {
-    background-color: #007BFF;
-    color: white;
+    background: #e0e2e2;
+    height: 21px;
     padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
+    border-radius: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
 }
 
-.top-buttons .btn:hover {
-    background-color: #0056b3;
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    padding: 0;
+    color: rgb(0, 0, 0);
+    font-size: 16px;
+    line-height: 40px;
+    width: 0;
+    transition: .70s;
 }
 
-/* Estilo para o botão de perfil no canto superior direito */
-.profile-btn {
-    position: fixed;
-    top: 20px;
-    right: 70px; /* Ajustei para ficar ao lado dos outros botões */
-    width: 40px;
+.search-btn {
+    width: 300px;
     height: 40px;
     border-radius: 50%;
-    background-color: #007BFF;
-    color: white;
-    text-align: center;
-    line-height: 40px;
-    font-size: 20px;
-    cursor: pointer;
-}
-
-/* Estilo do menu de login */
-.login-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: #f4f4f4;
-    box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.1);
-    transition: right 0.3s ease;
-    padding: 20px;
-}
-
-.login-menu h2 {
-    margin-top: 0;
-}
-
-.login-menu form {
+    background: #e4e2e2b6;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.login-menu input {
-    margin-bottom: 10px;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
 }
 
-.login-menu button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.search-box:hover > .search-btn {
+    background: #e0e2e200;
 }
 
-.login-menu button:hover {
-    background-color: #0056b3;
-}
-
-/* Estilo do botão de fechar */
-.close-btn {
-    font-size: 20px;
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-/* Estilo da barra lateral */
+/* Sidebar */
 .sidebar {
     position: fixed;
+    left: -250px;
     top: 0;
-    left: -300px;
-    width: 300px;
+    width: 250px;
     height: 100%;
-    background-color: #333;
+    background: rgb(60, 60, 60);
     color: white;
-    padding: 20px;
-    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
-    transition: left 0.3s ease;
+    transition: left 0.5s ease-in-out;
+    padding-top: 60px;
+    z-index: 100;
 }
 
 .sidebar.open {
     left: 0;
 }
 
-.sidebar h2 {
+/* Esconder elementos quando a sidebar estiver aberta */
+.hidden-when-sidebar-open {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.open ~ .hidden-when-sidebar-open {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Container dos botões no topo */
+.top-buttons {
+    position: absolute;
+    top: 119px;
+    left: 110px;
+    display: flex;
+    align-items: center;
+    gap: 305px;
+    z-index: 10;
+}
+
+/* Botão de abrir a sidebar */
+.toggle-btn {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.toggle-btn:hover {
+    background: hsl(0, 1%, 20%);
     color: white;
 }
 
-.sidebar ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    margin: 10px 0;
-}
-
-.sidebar ul li a {
+/* Botões de login e cadastro */
+.btn {
+    padding: 8px 15px;
+    background-color: #28313b;
     color: white;
+    font-size: 14px;
+    border: none;
+    border-radius: 50px;
     text-decoration: none;
+    cursor: pointer;
 }
 
-.sidebar ul li a:hover {
-    color: #007BFF;
+.btn:hover {
+    background-color: #13f779;
+}
+
+/* Botão Help Life */
+.help-btn {
+    position: fixed;
+    left: 10px;
+    top: 60px;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.help-btn:hover {
+    background: #555 
+}
+
+/* Estilos gerais */
+h2 {
+    text-align: center;
+    color: #333;
 }
