@@ -1,3 +1,5 @@
+
+
 // Espera o envio do formulário
 document.getElementById('cadastro-form').addEventListener('submit', function(event) {
   event.preventDefault(); // Impede o envio padrão do formulário
@@ -25,3 +27,6 @@ document.getElementById('cadastro-form').addEventListener('submit', function(eve
   // Limpa o formulário
   document.getElementById('cadastro-form').reset();
 });
+
+
+
