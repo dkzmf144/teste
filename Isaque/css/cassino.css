@@ -1,10 +1,11 @@
 body {
   margin: 0;
-  font-family: "Arial", sans-serif;
+  font-family: "Oswald", Arial, sans-serif;
   background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
   color: #fff;
 }
 
+/* Header */
 header {
   background-color: #111;
   color: #f9d84a;
@@ -13,43 +14,30 @@ header {
   justify-content: space-between;
   align-items: center;
   border-bottom: 2px solid #f9d84a;
+  font-size: 1.2rem;
 }
 
 .logo {
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 32px;
+  font-weight: 900;
   color: #fff;
+  text-shadow: 2px 2px #f9d84a;
 }
 
-nav a {
-  color: #f9d84a;
-  text-decoration: none;
-  margin-left: 20px;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav a:hover {
-  color: #fff;
-}
-
-/* HERO atualizado para vídeo */
+/* Hero com vídeo */
 .hero {
   position: relative;
   width: 100%;
   height: 60vh;
   overflow: hidden;
-  border-bottom: 4px solid #d4af37;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  font-weight: bold;
+  font-size: 2.5rem;
   color: #f9d84a;
   text-shadow: 2px 2px 8px #000;
-  font-weight: bold;
-  font-size: 2rem;
-  text-align: center;
-  padding: 0 20px;
 }
 
 .hero video {
@@ -72,7 +60,6 @@ nav a:hover {
   z-index: 2;
 }
 
-/* Texto em cima do vídeo */
 .hero h1,
 .hero p {
   position: relative;
@@ -82,7 +69,7 @@ nav a:hover {
 /* Produtos */
 .produtos {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 colunas fixas */
+  grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas fixas */
   gap: 30px;
   padding: 40px;
   max-width: 960px;
@@ -90,24 +77,14 @@ nav a:hover {
 }
 
 .produto {
-  width: 300px;
+  width: 100%; /* pega 100% da célula */
   height: 430px;
   background-color: #1a1a1a;
   border: 2px solid #333;
   border-radius: 10px;
   overflow: hidden;
   text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.produto {
-  width: 300px;
-  background-color: #1a1a1a;
-  border: 2px solid #333;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .produto:hover {
@@ -124,6 +101,7 @@ nav a:hover {
 .produto h3 {
   margin: 15px 0 10px;
   color: #f9d84a;
+  font-size: 1.2rem;
 }
 
 .produto a {
@@ -135,6 +113,7 @@ nav a:hover {
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 .produto a:hover {
@@ -142,15 +121,7 @@ nav a:hover {
   color: #000;
 }
 
-footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #111;
-  border-top: 2px solid #f9d84a;
-  font-size: 14px;
-}
-
-/* Seção de Jogos Online */
+/* Jogos Online */
 .jogos-online {
   padding: 60px 20px;
   background-color: #121212;
@@ -159,7 +130,7 @@ footer {
 
 .jogos-online h2 {
   color: #f9d84a;
-  font-size: 32px;
+  font-size: 2rem;
   margin-bottom: 30px;
   text-shadow: 2px 2px 8px #000;
 }
@@ -167,24 +138,24 @@ footer {
 .jogos-grid {
   display: flex;
   justify-content: center;
-  gap: 30px;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .jogo-card {
   background-color: #1a1a1a;
   border: 2px solid #333;
-  border-radius: 10px;
+  border-radius: 12px;
   max-width: 250px;
   overflow: hidden;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .jogo-card:hover {
   transform: scale(1.05);
   border-color: #f9d84a;
-  box-shadow: 0 0 15px #f9d84a55;
+  box-shadow: 0 0 15px #f9d84a77;
 }
 
 .jogo-card img {
@@ -195,6 +166,7 @@ footer {
 .jogo-card h3 {
   color: #f9d84a;
   margin: 15px 0;
+  font-size: 1.1rem;
 }
 
 .jogo-card a {
@@ -213,17 +185,50 @@ footer {
   color: #000;
 }
 
+/* Seção Informativa */
 .info {
   text-align: center;
-  margin: 40px 0;
+  margin: 60px 20px;
 }
 
 .info h1 {
-  font-size: 32px;
+  font-size: 2rem;
   color: #f9d84a;
+  text-shadow: 2px 2px #000;
 }
 
 .info p {
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #111;
+  border-top: 2px solid #f9d84a;
+  font-size: 14px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .hero {
+    font-size: 1.5rem;
+    height: 50vh;
+  }
+
+  .produto {
+    width: 100%;
+  }
+
+  .produtos {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .jogos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }
