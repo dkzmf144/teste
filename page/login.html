@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Saúde Convênios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #058789;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login - Saúde Convênios</h2>
+
+        <!-- Formulário de Login -->
+        <form id="login-form" onsubmit="validarLogin(event)">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" class="input-field" placeholder="Digite seu e-mail" required>
+
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" class="input-field" placeholder="Digite sua senha" required>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+        <div class="footer">
+            <p>Esqueceu sua senha? <a href="#">Clique aqui</a></p>
+            <p>Ainda não tem uma conta? <a href="#">Cadastre-se</a></p>
+        </div>
+    </div>
+
+    <script>
+        // Função para validar o login
+        function validarLogin(event) {
+            event.preventDefault(); // Impede o envio do formulário
+
+            // Coleta os dados do formulário
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+
+            // Recupera os usuários cadastrados do LocalStorage
+            const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+            // Verifica se o e-mail e a senha correspondem a algum usuário
+            let usuarioEncontrado = false;
+            for (let i = 0; i < usuarios.length; i++) {
+                if (usuarios[i].email === email && usuarios[i].senha === senha) {
+                    usuarioEncontrado = true;
+                    break;
+                }
+            }
+
+            if (usuarioEncontrado) {
+                alert('Login bem-sucedido!');
+                // Redireciona o usuário para a página de compras
+                window.location.href = 'index.hrml'; // Alterado para redirecionar para compras.html
+            } else {
+                alert('E-mail ou senha incorretos. Tente novamente.');
+            }
+        }
+    </script>
+
+</body>
+</html>
